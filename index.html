@@ -3,99 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qismat AI | Elite Access</title>
+    <title>Qismat AI | Official Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0b0e11; color: #eaecef; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        body { background-color: #0b0e11; color: #eaecef; font-family: 'Inter', sans-serif; }
         .binance-yellow { color: #f3ba2f; }
         .binance-bg-yellow { background-color: #f3ba2f; }
+        .glass-card { background: rgba(30, 35, 41, 0.9); border: 1px solid rgba(71, 77, 87, 0.5); border-radius: 2rem; }
+        .progress-bar { height: 8px; background: #2b2f36; border-radius: 4px; overflow: hidden; }
+        .progress-fill { width: 28%; background: #f3ba2f; box-shadow: 0 0 10px #f3ba2f; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
-        .founder-card { 
-            background: linear-gradient(135deg, #1e2329 0%, #0b0e11 100%);
-            border: 2px solid #f3ba2f;
-            box-shadow: 0 0 30px rgba(243, 186, 47, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .founder-card::before {
-            content: "FOUNDER";
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 80px;
-            font-weight: 900;
-            color: rgba(243, 186, 47, 0.03);
-            transform: rotate(-15deg);
-        }
-        .glow-text { text-shadow: 0 0 10px rgba(243, 186, 47, 0.5); }
+        .founder-card { background: linear-gradient(135deg, #1e2329 0%, #0b0e11 100%); border: 2px solid #f3ba2f; box-shadow: 0 0 30px rgba(243, 186, 47, 0.2); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <nav class="p-5 flex justify-between items-center border-b border-gray-800 bg-[#181a20]">
+    <nav class="p-5 flex justify-between items-center bg-[#181a20] border-b border-gray-800">
         <div class="flex items-center space-x-2">
             <div class="w-8 h-8 binance-bg-yellow rounded flex items-center justify-center text-black font-bold">Q</div>
-            <span class="text-xl font-bold tracking-tighter uppercase text-white">Qismat <span class="binance-yellow">AI</span></span>
+            <span class="text-xl font-bold uppercase tracking-tighter">Qismat <span class="binance-yellow">AI</span></span>
         </div>
+        <div class="flex items-center"><span class="h-2 w-2 bg-green-500 rounded-full mr-2 animate-pulse"></span> <span class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Live Nodes</span></div>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center py-20">
-        <h1 class="text-5xl font-black mb-6 leading-tight uppercase">Own The <br><span class="binance-yellow">Future.</span></h1>
-        <p class="text-gray-400 max-w-xs mb-10 text-lg">Claim your exclusive Founding Member digital ID card today.</p>
-        <button onclick="openModal()" class="w-full max-w-xs binance-bg-yellow text-black font-extrabold py-5 rounded-2xl shadow-xl uppercase tracking-widest active:scale-95 transition-all">
-            Get My Founder Card
-        </button>
+    <main class="flex-grow flex flex-col items-center justify-center px-6 py-10 text-center">
+        <h1 class="text-4xl font-black mb-2 italic">of <br><span class="binance-yellow text-5xl">Intelligence.</span></h1>
+        <p class="text-gray-400 text-sm max-w-xs mb-8">Pakistan's first community-powered AI ecosystem. Join the elite 500.</p>
+
+        <div class="w-full max-w-sm glass-card p-8 mb-10 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-sm font-bold text-gray-400">Founding Slots</span>
+                <span class="text-2xl font-black binance-yellow">142<span class="text-gray-600 text-sm">/500</span></span>
+            </div>
+            <div class="progress-bar mb-6">
+                <div class="progress-fill h-full"></div>
+            </div>
+            
+            <button onclick="openModal()" class="w-full binance-bg-yellow text-black font-black py-5 rounded-2xl text-lg uppercase tracking-widest shadow-[0_10px_20px_rgba(243,186,47,0.3)] active:scale-95 transition-all">
+                Claim My Spot Now
+            </button>
+            
+            <p class="text-[9px] text-gray-600 uppercase mt-6 tracking-[0.2em] font-bold">Protected by Bio-Sync & AI Security</p>
+        </div>
     </main>
 
     <div id="regModal" class="modal px-4">
         <div class="bg-[#1e2329] p-8 rounded-[2rem] w-full max-w-sm relative border border-gray-700">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-500"><i class="fas fa-times text-xl"></i></button>
-            <h2 class="text-2xl font-bold text-center mb-8 italic uppercase">Member <span class="binance-yellow">Registration</span></h2>
+            <h2 class="text-2xl font-bold text-center mb-8 uppercase italic">Founder <span class="binance-yellow">Registration</span></h2>
             <form onsubmit="handleRegister(event)" class="space-y-6">
                 <input type="text" id="userName" required class="w-full bg-[#2b2f36] border border-gray-700 rounded-xl p-4 text-white" placeholder="Enter Full Name">
                 <input type="tel" id="userPhone" required class="w-full bg-[#2b2f36] border border-gray-700 rounded-xl p-4 text-white" placeholder="WhatsApp Number">
-                <button type="submit" class="w-full binance-bg-yellow text-black font-bold py-4 rounded-xl uppercase tracking-wider shadow-lg">Generate Card</button>
+                <button type="submit" class="w-full binance-bg-yellow text-black font-bold py-4 rounded-xl uppercase tracking-wider">Generate My ID</button>
             </form>
         </div>
     </div>
 
     <div id="successScreen" class="hidden fixed inset-0 bg-[#0b0e11] z-[110] flex flex-col items-center justify-center px-6">
-        <div class="founder-card w-full max-w-sm p-8 rounded-[2.5rem] text-center border-t-4 border-yellow-500 shadow-[0_0_50px_rgba(243,186,47,0.1)]">
-            <div class="flex justify-center mb-6">
-                <div class="w-20 h-20 bg-yellow-500/10 rounded-full flex items-center justify-center border border-yellow-500/30">
-                    <i class="fas fa-crown text-4xl binance-yellow animate-bounce"></i>
-                </div>
-            </div>
-            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-[0.3em] mb-2">Official Founding Member</h3>
-            <h2 id="cardName" class="text-3xl font-black text-white glow-text uppercase mb-4 tracking-tighter">USER NAME</h2>
-            
-            <div class="grid grid-cols-2 gap-4 mt-8 py-4 border-t border-b border-gray-800">
-                <div class="text-left">
-                    <p class="text-[10px] text-gray-600 uppercase font-bold">Member ID</p>
-                    <p id="memberId" class="text-sm font-mono text-white">#QAI-8812</p>
-                </div>
-                <div class="text-right">
-                    <p class="text-[10px] text-gray-600 uppercase font-bold">Status</p>
-                    <p class="text-sm font-bold text-green-500">VERIFIED</p>
-                </div>
-            </div>
-            
-            <div class="mt-8">
-                <p class="text-[9px] text-gray-500 uppercase tracking-widest italic leading-relaxed">This card grants early access to the Qismat AI Ecosystem and future dividends.</p>
+        <div class="founder-card w-full max-w-sm p-8 rounded-[2.5rem] text-center border-t-4 border-yellow-500">
+            <div class="flex justify-center mb-6"><i class="fas fa-crown text-4xl binance-yellow"></i></div>
+            <h3 class="text-gray-500 text-xs font-bold uppercase tracking-[0.3em] mb-2">Founding Member</h3>
+            <h2 id="cardName" class="text-3xl font-black text-white uppercase mb-4 tracking-tighter">USER NAME</h2>
+            <div class="grid grid-cols-2 gap-4 mt-8 py-4 border-t border-gray-800">
+                <div class="text-left"><p class="text-[10px] text-gray-600 uppercase font-bold">ID</p><p id="memberId" class="text-sm font-mono text-white">#QAI-8812</p></div>
+                <div class="text-right"><p class="text-[10px] text-gray-600 uppercase font-bold">Status</p><p class="text-sm font-bold text-green-500">VERIFIED</p></div>
             </div>
         </div>
-        
-        <p class="mt-8 text-yellow-500/70 text-sm animate-pulse font-bold uppercase tracking-widest"><i class="fas fa-camera mr-2"></i> Take a Screenshot & Share!</p>
-        
-        <button onclick="redirectToWA()" class="mt-6 text-black binance-bg-yellow px-10 py-4 rounded-full font-black text-sm shadow-lg uppercase tracking-widest">
-            <i class="fab fa-whatsapp mr-2"></i> Confirm on WhatsApp
+        <button onclick="redirectToWA()" class="mt-8 text-black binance-bg-yellow px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest shadow-lg">
+            Confirm on WhatsApp
         </button>
     </div>
 
     <script>
         let userData = { name: "", phone: "" };
-
         function openModal() { document.getElementById('regModal').style.display = 'flex'; }
         function closeModal() { document.getElementById('regModal').style.display = 'none'; }
         
@@ -103,24 +84,22 @@
             e.preventDefault();
             userData.name = document.getElementById('userName').value;
             userData.phone = document.getElementById('userPhone').value;
-            
-            const randomID = Math.floor(1000 + Math.random() * 9000);
-            document.getElementById('memberId').innerText = `#QAI-${randomID}`;
             document.getElementById('cardName').innerText = userData.name;
-            
+            document.getElementById('memberId').innerText = `#QAI-${Math.floor(1000 + Math.random() * 9000)}`;
             document.getElementById('regModal').style.display = 'none';
             document.getElementById('successScreen').classList.remove('hidden');
         }
 
         function redirectToWA() {
-            // AAPKA ASLI NUMBER MAINE YAHAN SET KAR DIYA HAI
+            // AAPKA ASLI NUMBER FIX KAR DIYA HAI
             const myNumber = "923198634863"; 
-            const message = `Assalam o Alaikum! I am ${userData.name}. I just generated my Qismat AI Founder Card. Please verify my status!`;
-            window.location.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(message)}`;
+            const msg = `Assalam o Alaikum! I am ${userData.name}. I want to join Qismat AI. My Phone: ${userData.phone}`;
+            window.location.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`;
         }
     </script>
 </body>
 </html>
+
 
 
  
