@@ -1,59 +1,61 @@
  
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qismat AI | Official Founding Member</title>
+    <title>Qismat AI | Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #0b0e11; color: #eaecef; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { background-color: #0b0e11; color: #eaecef; font-family: sans-serif; }
         .binance-yellow { color: #f3ba2f; }
         .binance-bg-yellow { background-color: #f3ba2f; }
-        .card-gradient { background: linear-gradient(135deg, #1e2329 0%, #0b0e11 100%); border: 1px solid #474d57; }
-        .glow { box-shadow: 0 0 15px rgba(243, 186, 47, 0.3); }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 50; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <nav class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#181a20] sticky top-0 z-40">
-        <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 binance-bg-yellow rounded-lg flex items-center justify-center text-black font-bold shadow-lg">Q</div>
-            <span class="text-xl font-bold tracking-tighter">QISMAT <span class="binance-yellow">AI</span></span>
-        </div>
-        <div class="flex items-center space-x-4">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded text-gray-400">v1.0 Beta</span>
-        </div>
+    <nav class="p-4 border-b border-gray-800 bg-[#181a20]">
+        <span class="text-xl font-bold">QISMAT <span class="binance-yellow">AI</span></span>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 text-center">
-        <div class="animate-pulse mb-6">
-            <span class="px-4 py-1.5 rounded-full bg-yellow-500/10 text-yellow-500 text-xs font-bold border border-yellow-500/20 uppercase tracking-widest">
-                Limited Founding Spots Open
-            </span>
-        </div>
-        
-        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-none">
-            OWN THE <br><span class="binance-yellow">FUTURE.</span>
-        </h1>
-        
-        <p class="text-gray-400 max-w-md mb-12 text-lg leading-relaxed">
-            Qismat AI is the world's first decentralized wealth intelligence ecosystem. Register now to claim your <span class="text-white font-bold">Founding Member</span> status.
-        </p>
+    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center">
+        <h1 class="text-5xl font-black mb-6">OWN THE <br><span class="binance-yellow">FUTURE.</span></h1>
+        <p class="text-gray-400 mb-10">Register now as a Founding Member.</p>
 
-        <button onclick="openModal()" class="w-full max-w-xs binance-bg-yellow text-black font-extrabold py-5 rounded-xl shadow-[0_10px_20px_rgba(243,186,47,0.2)] hover:shadow-yellow-500/40 transition-all transform active:scale-95 text-lg uppercase tracking-wider">
-            Claim My Spot Now
+        <button onclick="openModal()" style="cursor: pointer !important;" class="w-full max-w-xs binance-bg-yellow text-black font-bold py-5 rounded-xl shadow-lg transform active:scale-95">
+            CLAIM MY SPOT NOW
         </button>
-
-        <div class="mt-8 flex items-center space-x-6 text-gray-500 text-sm">
-            <span><i class="fas fa-shield-alt binance-yellow mr-1"></i> Secure</span>
-            <span><i class="fas fa-bolt binance-yellow mr-1"></i> Fast</span>
-            <span><i class="fas fa-check-circle binance-yellow mr-1"></i> Verified</span>
-        </div>
     </main>
 
-    <div id="regModal" class="modal px-4">
-        <div class="card-gradient p-8 rounded-3xl w-full max-w-sm relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text
+    <div id="regModal" class="modal">
+        <div class="bg-[#1e2329] p-8 rounded-2xl w-[90%] max-w-sm border border-gray-700">
+            <h2 class="text-2xl font-bold mb-4">Register <span class="binance-yellow">Now</span></h2>
+            <form onsubmit="handleRegister(event)">
+                <input type="text" id="userName" required class="w-full bg-gray-800 border border-gray-700 p-4 rounded-lg mb-4 text-white" placeholder="Full Name">
+                <input type="tel" id="userPhone" required class="w-full bg-gray-800 border border-gray-700 p-4 rounded-lg mb-6 text-white" placeholder="WhatsApp Number">
+                <button type="submit" class="w-full binance-bg-yellow text-black font-bold py-4 rounded-lg">SUBMIT</button>
+            </form>
+            <button onclick="closeModal()" class="mt-4 text-gray-500 text-sm">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            console.log("Opening...");
+            document.getElementById('regModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('regModal').style.display = 'none';
+        }
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value;
+            const waLink = `https://wa.me/923238634863?text=Hi, I am ${name}. I want to join Qismat AI.`;
+            window.location.href = waLink;
+        }
+    </script>
+</body>
+</html>
+ 
