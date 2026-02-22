@@ -1,97 +1,59 @@
-<!DOCTYPE html>
+ 
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qismat AI | Official Founding 500</title>
+    <title>Qismat AI | Official Founding Member</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { 
-            background-color: #0b0e11; 
-            color: #eaeaea; 
-            font-family: 'Inter', sans-serif;
-            background-image: radial-gradient(circle at 10% 20%, rgba(243, 186, 47, 0.05) 0%, transparent 40%);
-        }
-        .binance-gold { color: #f3ba2f; }
-        .bg-binance-gold { background-color: #f3ba2f; }
-        .glass { 
-            background: rgba(30, 32, 38, 0.7); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-        }
-        .glow-button {
-            box-shadow: 0 0 15px rgba(243, 186, 47, 0.4);
-            transition: all 0.3s ease;
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 25px rgba(243, 186, 47, 0.6);
-            transform: translateY(-2px);
-        }
+        body { background-color: #0b0e11; color: #eaecef; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .binance-yellow { color: #f3ba2f; }
+        .binance-bg-yellow { background-color: #f3ba2f; }
+        .card-gradient { background: linear-gradient(135deg, #1e2329 0%, #0b0e11 100%); border: 1px solid #474d57; }
+        .glow { box-shadow: 0 0 15px rgba(243, 186, 47, 0.3); }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 50; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <nav class="p-5 flex justify-between items-center glass sticky top-0 z-50">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-binance-gold rounded-lg rotate-45"></div>
-            <h1 class="text-xl font-black tracking-tighter">QISMAT <span class="binance-gold">AI</span></h1>
+    <nav class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#181a20] sticky top-0 z-40">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 binance-bg-yellow rounded-lg flex items-center justify-center text-black font-bold shadow-lg">Q</div>
+            <span class="text-xl font-bold tracking-tighter">QISMAT <span class="binance-yellow">AI</span></span>
         </div>
-        <div class="px-3 py-1 bg-gray-800 rounded-full text-[10px] font-bold border border-gray-700">
-            <span class="text-green-400">●</span> LIVE NODES
+        <div class="flex items-center space-x-4">
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded text-gray-400">v1.0 Beta</span>
         </div>
     </nav>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center py-12">
-        <div class="inline-block px-4 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-xs font-bold binance-gold mb-6 uppercase tracking-widest">
-            Early Access: Founding 500
+    <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 text-center">
+        <div class="animate-pulse mb-6">
+            <span class="px-4 py-1.5 rounded-full bg-yellow-500/10 text-yellow-500 text-xs font-bold border border-yellow-500/20 uppercase tracking-widest">
+                Limited Founding Spots Open
+            </span>
         </div>
         
-        <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            Build the Future <br>of <span class="binance-gold italic">Intelligence.</span>
-        </h2>
+        <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-none">
+            OWN THE <br><span class="binance-yellow">FUTURE.</span>
+        </h1>
         
-        <p class="text-gray-400 max-w-lg mb-10 text-lg leading-relaxed">
-            Pakistan's first community-powered AI ecosystem. Zero investment. Real impact. Join the elite 500.
+        <p class="text-gray-400 max-w-md mb-12 text-lg leading-relaxed">
+            Qismat AI is the world's first decentralized wealth intelligence ecosystem. Register now to claim your <span class="text-white font-bold">Founding Member</span> status.
         </p>
-        
-        <div class="glass p-10 rounded-[2rem] w-full max-w-md border-t border-white/10">
-            <div class="flex justify-between items-end mb-4">
-                <span class="text-sm font-bold">Founding Slots</span>
-                <span class="binance-gold text-2xl font-black">142<span class="text-gray-500 text-sm font-normal">/500</span></span>
-            </div>
-            
-            <div class="w-full bg-gray-800 h-3 rounded-full mb-10 overflow-hidden p-[2px]">
-                <div class="bg-binance-gold h-full rounded-full transition-all duration-1000" style="width: 71%"></div>
-            </div>
-            
-            <a href="https://wa.me/923191182360?text=Salam%20Qismat%20AI%20Founding%20Member" 
-               class="block w-full bg-binance-gold text-black font-black py-5 rounded-2xl glow-button text-center uppercase tracking-tighter text-xl">
-                Claim My Spot Now
-            </a>
-            
-            <p class="mt-6 text-[10px] text-gray-500 uppercase tracking-widest">
-                Protected by Bio-Sync & AI Security
-            </p>
+
+        <button onclick="openModal()" class="w-full max-w-xs binance-bg-yellow text-black font-extrabold py-5 rounded-xl shadow-[0_10px_20px_rgba(243,186,47,0.2)] hover:shadow-yellow-500/40 transition-all transform active:scale-95 text-lg uppercase tracking-wider">
+            Claim My Spot Now
+        </button>
+
+        <div class="mt-8 flex items-center space-x-6 text-gray-500 text-sm">
+            <span><i class="fas fa-shield-alt binance-yellow mr-1"></i> Secure</span>
+            <span><i class="fas fa-bolt binance-yellow mr-1"></i> Fast</span>
+            <span><i class="fas fa-check-circle binance-yellow mr-1"></i> Verified</span>
         </div>
     </main>
 
-    <section class="grid grid-cols-2 gap-4 px-6 mb-12 max-w-md mx-auto">
-        <div class="glass p-4 rounded-2xl text-left">
-            <div class="text-binance-gold font-bold mb-1">Earn</div>
-            <div class="text-xs text-gray-500 font-medium">Daily tasks & AI validation.</div>
-        </div>
-        <div class="glass p-4 rounded-2xl text-left">
-            <div class="text-binance-gold font-bold mb-1">Scale</div>
-            <div class="text-xs text-gray-500 font-medium">Global AI contracts.</div>
-        </div>
-    </section>
-
-    <footer class="p-8 text-center border-t border-white/5">
-        <p class="text-gray-600 text-xs font-bold tracking-widest uppercase">
-            © 2026 QISMAT AI LABS • THE ECOSYSTEM
-        </p>
-    </footer>
-
-</body>
-</html>
+    <div id="regModal" class="modal px-4">
+        <div class="card-gradient p-8 rounded-3xl w-full max-w-sm relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text
