@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qismat AI | Official Dashboard</title>
+    <title>Qismat AI | Global Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -25,7 +25,7 @@
             <span class="text-xl font-bold uppercase tracking-tighter">Qismat <span class="binance-yellow">AI</span></span>
         </div>
         
-        <select onchange="updateLang(this.value)" class="lang-select">
+        <select onchange="updateAllText(this.value)" class="lang-select">
             <option value="en">ENGLISH 🇺🇸</option>
             <option value="ur">اردو 🇵🇰</option>
             <option value="ar">العربية 🇸🇦</option>
@@ -33,92 +33,64 @@
             <option value="es">ESPAÑOL 🇪🇸</option>
             <option value="fr">FRANÇAIS 🇫🇷</option>
             <option value="tr">TÜRKÇE 🇹🇷</option>
-            <option value="ru">РУССКИЙ 🇷🇺</option>
             <option value="hi">हिन्दी 🇮🇳</option>
-            <option value="id">BAHASA 🇮🇩</option>
-            <option value="bn">বাংলা 🇧🇩</option>
             <option value="ja">日本語 🇯🇵</option>
-            <option value="pt">PORTUGUÊS 🇧🇷</option>
-            <option value="de">DEUTSCH 🇩🇪</option>
-            <option value="it">ITALIANO 🇮🇹</option>
-            <option value="fa">فارسی 🇮🇷</option>
-            <option value="ko">한국어 🇰🇷</option>
-            <option value="vi">TIẾNG VIỆT 🇻🇳</option>
-            <option value="th">ไทย 🇹🇭</option>
-            <option value="ms">MALAY 🇲🇾</option>
+            <option value="ru">РУССКИЙ 🇷🇺</option>
         </select>
     </nav>
 
     <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 text-center">
-        <h1 id="heroH1" class="text-5xl font-black mb-4 italic tracking-tighter leading-tight">
-            of <br><span class="binance-yellow text-6xl uppercase not-italic">Intelligence.</span>
+        <h1 class="text-5xl font-black mb-4 italic tracking-tighter leading-tight">
+            <span id="txt-of">of</span> <br><span id="txt-intel" class="binance-yellow text-6xl uppercase not-italic">Intelligence.</span>
         </h1>
         
-        <p id="subP" class="text-gray-400 text-sm max-w-xs mb-10 leading-relaxed font-medium">
+        <p id="txt-sub" class="text-gray-400 text-sm max-w-xs mb-10 leading-relaxed font-medium">
             Pakistan's first community-powered AI ecosystem. Zero investment. Real impact. Join the elite 500.
         </p>
 
         <div class="w-full max-w-sm glass-card p-10 shadow-2xl border-t border-white/10">
             <div class="flex justify-between items-end mb-5">
-                <span id="slotL" class="text-sm font-bold text-gray-300 uppercase tracking-widest">Founding Slots</span>
+                <span id="txt-slots" class="text-sm font-bold text-gray-300 uppercase tracking-widest">Founding Slots</span>
                 <span class="text-3xl font-black binance-yellow tracking-tighter">142<span class="text-gray-600 text-lg">/500</span></span>
             </div>
-            
-            <div class="progress-bar mb-10">
-                <div class="progress-fill h-full"></div>
-            </div>
-            
-            <button id="ctaB" onclick="openModal()" class="w-full binance-bg-yellow text-black font-black py-5 rounded-2xl text-lg uppercase tracking-widest shadow-lg active:scale-95 transition-all">
+            <div class="progress-bar mb-10"><div class="progress-fill h-full"></div></div>
+            <button id="txt-cta" onclick="openModal()" class="w-full binance-bg-yellow text-black font-black py-5 rounded-2xl text-lg uppercase tracking-widest">
                 Claim My Spot Now
             </button>
-            
-            <p id="secF" class="text-[9px] text-gray-500 uppercase mt-8 tracking-widest font-bold">
+            <p id="txt-sec" class="text-[9px] text-gray-500 uppercase mt-8 tracking-widest font-bold">
                 Protected by Bio-Sync & AI Security
             </p>
         </div>
     </main>
 
     <div id="regModal" class="modal px-4">
-        <div class="bg-[#1e2329] p-8 rounded-[2.5rem] w-full max-w-sm relative border border-gray-700 shadow-2xl">
-            <h2 id="modalH" class="text-2xl font-bold text-center mb-8 uppercase italic italic">Founder Registration</h2>
-            <form onsubmit="handleRegister(event)" class="space-y-6 text-center">
-                <input type="text" id="userName" required class="w-full bg-[#2b2f36] border border-gray-700 rounded-xl p-5 text-white outline-none" placeholder="Your Full Name">
-                <button type="submit" id="genB" class="w-full binance-bg-yellow text-black font-black py-4 rounded-xl uppercase tracking-widest">Generate My ID</button>
+        <div class="bg-[#1e2329] p-8 rounded-[2.5rem] w-full max-w-sm relative border border-gray-700 shadow-2xl text-center">
+            <h2 id="txt-mod" class="text-2xl font-bold mb-8 uppercase italic">Founder Registration</h2>
+            <form onsubmit="handleRegister(event)" class="space-y-6">
+                <input type="text" id="userName" required class="w-full bg-[#2b2f36] border border-gray-700 rounded-xl p-5 text-white outline-none" placeholder="Your Name">
+                <button type="submit" id="txt-gen" class="w-full binance-bg-yellow text-black font-black py-4 rounded-xl uppercase tracking-widest">Generate ID</button>
             </form>
         </div>
     </div>
 
-    <div id="successScreen" class="hidden fixed inset-0 bg-[#0b0e11] z-[110] flex flex-col items-center justify-center px-6">
-        <div class="founder-card w-full max-w-sm p-8 rounded-[3rem] text-center border-t-4 border-yellow-500">
-            <h3 id="cardR" class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2">Elite Founding Member</h3>
-            <h2 id="cardName" class="text-3xl font-black text-white uppercase mb-6 tracking-tighter underline decoration-yellow-500">USER</h2>
-            <p class="text-green-500 font-bold text-sm uppercase">Verified ✅</p>
-        </div>
-        <button onclick="redirectToWA()" class="mt-10 text-black binance-bg-yellow px-12 py-5 rounded-full font-black text-sm uppercase tracking-widest shadow-2xl">
-            Confirm on WhatsApp
-        </button>
-    </div>
-
     <script>
-        const dict = {
-            en: { hero: "of <br><span class='binance-yellow text-6xl uppercase not-italic'>Intelligence.</span>", sub: "Pakistan's first community-powered AI ecosystem. Zero investment. Real impact. Join the elite 500.", slots: "Founding Slots", cta: "Claim My Spot Now", sec: "Protected by Bio-Sync & AI Security", mod: "Founder Registration", gen: "Generate My ID", rank: "Elite Founding Member" },
-            ur: { hero: "ذہانت کا <br><span class='binance-yellow text-6xl uppercase not-italic'>مستقبل۔</span>", sub: "پاکستان کا پہلا کمیونٹی سے چلنے والا اے آئی نظام۔ بغیر کسی سرمایہ کاری کے۔", slots: "مخصوص نشستیں", cta: "اپنی جگہ محفوظ کریں", sec: "اے آئی سیکیورٹی سے محفوظ", mod: "ممبر رجسٹریشن", gen: "آئی ڈی بنائیں", rank: "ممبر آئی ڈی" },
-            ar: { hero: "مستقبل <br><span class='binance-yellow text-6xl uppercase not-italic'>الذكاء.</span>", sub: "أول نظام بيئي للذكاء الاصطناعي مدعوم من المجتمع في باكستان. استثمار صفر.", slots: "الفتحات التأسيسية", cta: "احصل على مكانك الآن", sec: "محمي بواسطة الأمن الذكي", mod: "تسجيل المؤسس", gen: "إنشاء الهوية", rank: "عضو مؤسس نخبة" },
-            zh: { hero: "的 <br><span class='binance-yellow text-6xl uppercase not-italic'>人工智能。</span>", sub: "巴基斯坦首个由社区驱动的人工智能生态系统。零投资。加入精英 500 强。", slots: "创始席位", cta: "立即申请", sec: "受人工智能安全保护", mod: "创始人注册", gen: "生成编号", rank: "精英创始成员" },
-            tr: { hero: "geleceğin <br><span class='binance-yellow text-6xl uppercase not-italic'>Zekası.</span>", sub: "Pakistan'ın topluluk odaklı ilk yapay zeka ekosistemi. Sıfır yatırım.", slots: "Kurucu Kontenjanlar", cta: "Yerinizi Ayırtın", sec: "Yapay Zeka Güvenliği", mod: "Kurucu Kaydı", gen: "Kimlik Oluştur", rank: "Elit Kurucu Üye" }
-            // All other 15 languages will fallback to English if not defined, but logic is solid!
+        const data = {
+            en: { of: "of", intel: "Intelligence.", sub: "Pakistan's first community-powered AI ecosystem. Zero investment. Real impact. Join the elite 500.", slots: "Founding Slots", cta: "Claim My Spot Now", sec: "Protected by Bio-Sync & AI Security", mod: "Founder Registration", gen: "Generate ID" },
+            ur: { of: "ذہانت کا", intel: "مستقبل۔", sub: "پاکستان کا پہلا کمیونٹی سے چلنے والا اے آئی نظام۔ بغیر کسی سرمایہ کاری کے۔", slots: "مخصوص نشستیں", cta: "اپنی جگہ محفوظ کریں", sec: "اے آئی سیکیورٹی سے محفوظ", mod: "ممبر رجسٹریشن", gen: "آئی ڈی بنائیں" },
+            ja: { of: "の", intel: "インテリジェンス", sub: "パキスタン初のコミュニティ主導型AIエコシステム。投資ゼロ。エリート500名に参加しましょう。", slots: "創設枠", cta: "今すぐスポットを確保", sec: "AIセキュリティで保護されています", mod: "創設者登録", gen: "IDを生成する" },
+            ar: { of: "من", intel: "الذكاء.", sub: "أول نظام بيئي للذكاء الاصطناعي مدعوم من المجتمع في باكستان. استثمار صفر.", slots: "الفتحات التأسيسية", cta: "احصل على مكانك الآن", sec: "محمي بالأمن الذكي", mod: "تسجيل المؤسس", gen: "إنشاء الهوية" }
         };
 
-        function updateLang(l) {
-            const t = dict[l] || dict['en'];
-            document.getElementById('heroH1').innerHTML = t.hero;
-            document.getElementById('subP').innerText = t.sub;
-            document.getElementById('slotL').innerText = t.slots;
-            document.getElementById('ctaB').innerText = t.cta;
-            document.getElementById('secF').innerText = t.sec;
-            document.getElementById('modalH').innerText = t.mod;
-            document.getElementById('genB').innerText = t.gen;
-            document.getElementById('cardR').innerText = t.rank;
+        function updateAllText(lang) {
+            const t = data[lang] || data['en'];
+            document.getElementById('txt-of').innerText = t.of;
+            document.getElementById('txt-intel').innerText = t.intel;
+            document.getElementById('txt-sub').innerText = t.sub;
+            document.getElementById('txt-slots').innerText = t.slots;
+            document.getElementById('txt-cta').innerText = t.cta;
+            document.getElementById('txt-sec').innerText = t.sec;
+            document.getElementById('txt-mod').innerText = t.mod;
+            document.getElementById('txt-gen').innerText = t.gen;
         }
 
         function openModal() { document.getElementById('regModal').style.display = 'flex'; }
@@ -126,19 +98,14 @@
         
         function handleRegister(e) {
             e.preventDefault();
+            const myNumber = "923198634863"; // Aapka number set hai
             const name = document.getElementById('userName').value;
-            document.getElementById('cardName').innerText = name;
-            document.getElementById('regModal').style.display = 'none';
-            document.getElementById('successScreen').classList.remove('hidden');
-        }
-
-        function redirectToWA() {
-            const myNumber = "923198634863"; 
-            window.location.href = `https://wa.me/${myNumber}?text=Assalam o Alaikum! I want to join Qismat AI.`;
+            window.location.href = `https://wa.me/${myNumber}?text=I am ${name}. I want to join Qismat AI.`;
         }
     </script>
 </body>
 </html>
+
 
 
 
